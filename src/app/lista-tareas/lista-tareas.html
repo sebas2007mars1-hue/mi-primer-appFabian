@@ -1,0 +1,37 @@
+<div class="contenedor">
+
+  <h1>Mis Tareas</h1>
+
+  <div class="formulario">
+    <input
+      type="text"
+      [(ngModel)]="nuevaTarea"
+      placeholder="¿Qué necesitas hacer?"
+      (keyup.enter)="agregarTarea()"
+    />
+    <button (click)="agregarTarea()">Agregar</button>
+  </div>
+
+  <div class="lista">
+
+    @if (tareas.length === 0) {
+      <p class="vacio">No tienes tareas pendientes</p>
+    } @else {
+
+      @for (tarea of tareas; track tarea.id) {
+        <app-tarea-item
+          [tarea]="tarea"
+          (completar)="alternarCompletada($event)"
+          (eliminar)="eliminarTarea($event)"
+        />
+      }
+
+    }
+
+  </div>
+
+  <p class="resumen">
+    Total: {{ tareas.length }}
+  </p>
+
+</div>

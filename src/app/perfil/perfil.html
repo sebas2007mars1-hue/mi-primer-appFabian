@@ -1,0 +1,36 @@
+<div class="tarjeta">
+
+  <div class="cabecera">
+    <div class="avatar">{{ nombre.charAt(0) }}</div>
+
+    <div class="info">
+      <h2>{{ nombre }}</h2>
+      <p class="profesion">{{ profesion }}</p>
+
+      <span class="estado" [class.activo]="disponible">
+        {{ disponible ? 'Disponible' : 'Ocupado' }}
+      </span>
+    </div>
+  </div>
+
+  <div class="acciones">
+    <button (click)="darLike()" class="btn-like">
+      Me gusta ({{ contadorLikes }})
+    </button>
+
+    <button (click)="cambiarEstado()" class="btn-estado">
+      Cambiar estado
+    </button>
+
+    <button (click)="alternarHabilidades()" class="btn-habilidades">
+      Mostrar habilidades
+    </button>
+  </div>
+
+  <div *ngIf="mostrarHabilidades" class="habilidades">
+    <ul>
+      <li *ngFor="let h of habilidades">{{ h }}</li>
+    </ul>
+  </div>
+
+</div>

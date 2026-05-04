@@ -1,0 +1,15 @@
+<div class="item" [class.completada]="tarea().completada">
+
+  <input
+    type="checkbox"
+    [checked]="tarea().completada"
+    (change)="alCompletar()"
+  />
+
+  <span class="texto">{{ tarea().texto }}</span>
+
+  <button (click)="alEliminar()">
+    Eliminar
+  </button>
+
+</div>

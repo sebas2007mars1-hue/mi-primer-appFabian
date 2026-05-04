@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Perfil } from './perfil/perfil';
+import { ListaTareas } from './lista-tareas/lista-tareas';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [Perfil, ListaTareas],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-export class App {
-  protected readonly title = signal('mi-primer-app');
-}
+export class App {}
